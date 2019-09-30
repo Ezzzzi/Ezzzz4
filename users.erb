@@ -1,0 +1,16 @@
+<h2>User list</h2>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <th>Name</th>
+    <th>Post number</th>
+  </thead>
+  <tbody>
+    <% users.each do |user| %>
+      <tr class="active">
+        <td><%= user['name'] %></td>
+        <td><%= user_posts[user['name']] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Post</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+  </head>
+  <body>
+     <div class="container">
+       <div class="container-fluid"
+        <div class="col col-lg-4 col-md-7 col-sm-9 col-xs-13">
+          <nav class="navbar navbar-default">
+          <div class="navbar-header">
+           <a href="/" class="navbar-brand">Main</a>
+           <a href="/create" class="navbar-brand">New Post</a>
+           <a href="/register" class="navbar-brand">Register</a>
+           <a href="/login" class="navbar-brand">Login</a>
+          </div>
+        </nav>
+
+          <% flash.keys.each do |type| %>
+            <div data-alert class="flash alert alert-danger alert-box radius">
+              <%= flash[type] %>
+            </div>
+          <% end %>
+
+          <%= yield %>
+          </div>
+         </div>
+        </div>
+      </div>
+  </body>
+</html>

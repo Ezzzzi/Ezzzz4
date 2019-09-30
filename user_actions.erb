@@ -1,0 +1,9 @@
+<% unless user.empty? %>
+  <h3>Hello, <%= user %></h3>
+  <% if user == 'admin' %>
+  <a href="/users" class="btn btn-info">User list</a>
+  <% end %>
+    <form action="/logout" method="post">
+    <input type="submit" class="btn-warning" name="button" value="Logout!">
+  </form>
+<% end %>

@@ -1,0 +1,27 @@
+<%= erb :user_actions %>
+
+<form action="/search/author" method="get">
+  <div class="form-group">
+  <input type="text" name="value" class="form-control" placeholder="search by author">
+  <input type="submit" class="btn-primary" name="button" value="Search!">
+  </div>
+</form>
+
+<% if posts.count == 0 %>
+  <h3>Sorry, no posts for this criteria</h3>
+<% end %>
+
+<% posts.each do |post| %>
+  <div class="jumbotron">
+    <h1 class="display-4">
+      <a href="/post?name=<%= post['name'] %>">
+        <%= post['name'].capitalize %>
+      </a>
+    </h1>
+      <p class="lead">Post by <%= post['author'] %> at <p><%= post['time'] %></p>
+      <hr class="my-4">
+      <p><%= post['body'] %></p>
+    </div>
+<% end %>
+
+<%= erb :pagination, locals: { count: count, page_size: page_size } %>
